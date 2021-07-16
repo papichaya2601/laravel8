@@ -7,7 +7,7 @@ img {
 }
 </style>
 <h1>"Gallery of 62122420010 นางสาวปพิชญา ลาดหนองขุ่น"</h1>
-ant <a href="newgallery/ant">
+ant <a href="gallery/ant">
 <img src="{{$ant}}"></a>
 bird <img src="{{$bird}}">
 cat <img src="{{$cat}}">
