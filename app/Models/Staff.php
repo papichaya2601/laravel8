@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Covid19 extends Model
+class Staff extends Model
 {
     use HasFactory;
-
-    //ชื่อตารางในฐานข้อมูล
-    protected $table = "covid19s";
+    protected $table = "staff";
     //ชื่อคอลัมน์ในฐานข้อมูลที่อนุญาติให้แก้ไขข้อมูล
-    protected $fillable = ["date","country","total","active","death","recovered","total_in_1m","remark"];    
+    protected $fillable = ["name","age","salary","phone"];    
     //Primary Key
  	protected $primaryKey = "id";
-
 }
