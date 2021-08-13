@@ -14,7 +14,7 @@ class CreateStaffTable extends Migration
     public function up()
     {
         Schema::create('staff', function (Blueprint $table) {
-            $table->id("ID");
+            $table->id();
             $table->timestamps();
             $table->string('Name')->nullable();
             $table->integer('Age')->nullable();
