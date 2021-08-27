@@ -54,9 +54,11 @@ return view("test/ant", compact("ant"));
 });
 
 
-Route::get("/teacher" , function (){
-	return view("teacher");
-});
+Route::middleware(['auth', 'role:admin,teacher'])->group(function () {
+    Route::get('/teacher', function () {
+        return view('teacher/index');
+    });
+    
 
 Route::get("/student" , function (){
 	return view("student");
@@ -94,6 +96,30 @@ Route::get( "/coronavirus" ,[ MyProfileController::class , "coronavirus" ] );
 use App\Http\Controllers\Covid19Controller;
 Route::get('/covid19', [ Covid19Controller::class,"index" ]);
 
+use App\Http\Controllers\Covid19Controller;
+Route::get('/covid19', [ Covid19Controller::class,"index" ]);
+
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get("/homepage", function() {
+    return "<h1>This is home page</h1>" ;
+});
+Route::get("/blog/{id}", function($id) {
+    return "<h1>This is blog page : {$id} </h1>" ;
+});
+Route::get( "/blog/{id}/edit" , function($id) {
+    return "<h1>This is blog page : {$id} for edit</h1>" ;
+});
+Route::get("/product/{a}/{b}/{c}", function($a, $b, $c) {
+    return "<h1>This is product page </h1><div>{$a} , {$b}, {$c}</div>" ;
+});
+Route::get("/hello", function () {	
+    return view("hello");
+    });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
 
 Route::get("/covid19/create",[ Covid19Controller::class , "create" ]);
 
