@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
+use PDF;
+
 class ProductController extends Controller
 {
     /**
@@ -34,6 +36,13 @@ class ProductController extends Controller
 
         return view('product.index', compact('product'));
     }
+    public function pdf_index() {
+     $data = ["a" => "...", "b" => "..."  ];
+     $pdf = PDF::loadView('test_pdf',$data);
+     return $pdf->stream('test.pdf'); //แบบนี้จะ stream มา preview
+     //return $pdf->download('test.pdf'); //แบบนี้จะดาวโหลดเลย
+}
+
 
     /**
      * Show the form for creating a new resource.
